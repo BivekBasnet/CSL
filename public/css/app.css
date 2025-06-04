@@ -1,0 +1,171 @@
+/* Custom styles for the cleaning service website */
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile menu animations */
+.mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.mobile-menu:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button hover effects */
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonial cards */
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.02);
+}
+
+/* Service cards */
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.service-card:hover .service-icon {
+    color: white;
+}
+
+/* Team member cards */
+.team-card {
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card:hover .team-image {
+    transform: scale(1.05);
+}
+
+/* Form animations */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success messages */
+.alert-success {
+    animation: slideIn 0.3s ease-out;
+}
+
+.alert-error {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero section background */
+.hero-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Statistics counters */
+.stat-number {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Footer gradient */
+.footer-bg {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .mobile-responsive {
+        padding: 1rem;
+    }
+
+    .text-responsive {
+        font-size: 0.9rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .card-hover {
+        border: 2px solid #000;
+    }
+
+    .btn-primary {
+        border: 2px solid #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
