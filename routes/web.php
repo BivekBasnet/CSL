@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TestimonialController;
 
 // Home page
 Route::get('/', function () {
@@ -51,9 +52,7 @@ Route::get('/career', function () {
 Route::post('/career/apply', [CareerController::class, 'apply'])->name('career.apply');
 
 // Testimonials page
-Route::get('/testimonials', function () {
-    return view('pages.testimonials');
-})->name('testimonials');
+Route::get('/testimonials', [TestimonialController::class, 'listt'])->name('testimonials');
 
 // 404 page (fallback)
 Route::fallback(function () {
@@ -117,6 +116,7 @@ Route::get('/reviews', function () {
 
 //admin custom
 
+//admin team
 Route::prefix('team')->name('team.')->group(function () {
     Route::get('/list', [TeamController::class, 'list'])->name('list');
     Route::get('/add', [TeamController::class, 'add'])->name('add');
@@ -124,4 +124,14 @@ Route::prefix('team')->name('team.')->group(function () {
     Route::post('/store', [TeamController::class, 'store'])->name('store');
     Route::post('/update/{id}', [TeamController::class, 'update'])->name('update');
     Route::get('/delete/{id}', [TeamController::class, 'delete'])->name('delete');
+});
+
+//admin testimonial
+Route::prefix('testimonials')->name('testimonial.')->group(function () {
+    Route::get('/list', [TestimonialController::class, 'list'])->name('list');
+    Route::get('/add', [TestimonialController::class, 'add'])->name('add');
+    Route::get('/edit/{id}', [TestimonialController::class, 'edit'])->name('edit');
+    Route::post('/store', [TestimonialController::class, 'store'])->name('store');
+    Route::post('/update/{id}', [TestimonialController::class, 'update'])->name('update');
+    Route::get('/delete/{id}', [TestimonialController::class, 'delete'])->name('delete');
 });

@@ -40,7 +40,7 @@
     </li>
 
     <!-- Testimonial Menu -->
-    {{-- <li class="nav-item mb-2">
+    <li class="nav-item mb-2">
         <a class="nav-link fw-semibold" data-bs-toggle="collapse" href="#testimonialMenu" role="button" aria-expanded="false" aria-controls="testimonialMenu">
             Testimonial
         </a>
@@ -50,7 +50,7 @@
                 <li><a href="{{ route('testimonial.list') }}" class="nav-link">List</a></li>
             </ul>
         </div>
-    </li> --}}
+    </li>
 
     {{-- setting menu --}}
     {{-- <li class="nav-item mb-2">
