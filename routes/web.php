@@ -13,6 +13,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\TeamController;
 
 // Home page
 Route::get('/', function () {
@@ -30,9 +31,8 @@ Route::get('/about', function () {
 })->name('about');
 
 // Team page
-Route::get('/team', function () {
-    return view('pages.team');
-})->name('team');
+Route::get('/team', [TeamController::class, 'listt'])->name('team');
+
 
 // Contact page
 Route::get('/contact', function () {
@@ -79,10 +79,10 @@ Route::prefix('api')->group(function () {
 });
 
 // Admin routes (if needed)
-Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts');
-    Route::get('/applications', [CareerController::class, 'index'])->name('admin.applications');
-});
+// Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts');
+//     Route::get('/applications', [CareerController::class, 'index'])->name('admin.applications');
+// });
 
 // SEO-friendly URLs
 Route::get('/cleaning-services', function () {
@@ -107,4 +107,21 @@ Route::get('/jobs', function () {
 
 Route::get('/reviews', function () {
     return redirect()->route('testimonials');
+});
+
+
+
+
+
+
+
+//admin custom
+
+Route::prefix('team')->name('team.')->group(function () {
+    Route::get('/list', [TeamController::class, 'list'])->name('list');
+    Route::get('/add', [TeamController::class, 'add'])->name('add');
+    Route::get('/edit/{id}', [TeamController::class, 'edit'])->name('edit');
+    Route::post('/store', [TeamController::class, 'store'])->name('store');
+    Route::post('/update/{id}', [TeamController::class, 'update'])->name('update');
+    Route::get('/delete/{id}', [TeamController::class, 'delete'])->name('delete');
 });
