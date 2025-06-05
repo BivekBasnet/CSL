@@ -65,5 +65,5 @@
         </div>
     </section>
 
-    @include('components.team')
+    @include('components.about')
 @endsection
