@@ -11,7 +11,7 @@
                 <li><a href="{{ route('about.list') }}" class="nav-link">List</a></li>
             </ul>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Services Menu -->
     <li class="nav-item mb-2">
@@ -24,7 +24,21 @@
                 <li><a href="{{ route('services.list') }}" class="nav-link">List</a></li>
             </ul>
         </div>
-    </li> --}}
+    </li>
+
+
+        <!-- subservices Menu -->
+    <li class="nav-item mb-2">
+        <a class="nav-link fw-semibold" data-bs-toggle="collapse" href="#subservicesMenu" role="button" aria-expanded="false" aria-controls="subservicesMenu">
+            Subservices
+        </a>
+        <div class="collapse" id="subservicesMenu">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ms-3">
+                <li><a href="{{ route('subservices.add') }}" class="nav-link">Add</a></li>
+                <li><a href="{{ route('subservices.list') }}" class="nav-link">List</a></li>
+            </ul>
+        </div>
+    </li>
 
     <!-- Team Menu -->
     <li class="nav-item mb-2">
@@ -53,7 +67,7 @@
     </li>
 
     {{-- setting menu --}}
-    {{-- <li class="nav-item mb-2">
+     {{-- <li class="nav-item mb-2">
         <a class="nav-link fw-semibold" data-bs-toggle="collapse" href="#settingMenu" role="button" aria-expanded="false" aria-controls="settingMenu">
             Setting
         </a>

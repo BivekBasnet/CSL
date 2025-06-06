@@ -15,6 +15,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SubservicesController;
+
+
 
 // Home page
 Route::get('/', function () {
@@ -84,9 +88,9 @@ Route::prefix('api')->group(function () {
 // });
 
 // SEO-friendly URLs
-Route::get('/cleaning-services', function () {
-    return redirect()->route('services');
-});
+// Route::get('/cleaning-services', function () {
+//     return redirect()->route('services');
+// });
 
 Route::get('/about-us', function () {
     return redirect()->route('about');
@@ -134,4 +138,28 @@ Route::prefix('testimonials')->name('testimonial.')->group(function () {
     Route::post('/store', [TestimonialController::class, 'store'])->name('store');
     Route::post('/update/{id}', [TestimonialController::class, 'update'])->name('update');
     Route::get('/delete/{id}', [TestimonialController::class, 'delete'])->name('delete');
+});
+
+
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+
+//services
+Route::prefix('services')->name('services.')->group(function () {
+    Route::get('/list', [ServicesController::class, 'list'])->name('list');
+    Route::get('/add', [ServicesController::class, 'add'])->name('add');
+    Route::get('/edit/{id}', [ServicesController::class, 'edit'])->name('edit');
+    Route::post('/store', [ServicesController::class, 'store'])->name('store');
+    Route::post('/update/{id}', [ServicesController::class, 'update'])->name('update');
+    Route::get('/delete/{id}', [ServicesController::class, 'delete'])->name('delete');
+});
+
+
+//subservices
+Route::prefix('subservices')->name('subservices.')->group(function () {
+    Route::get('/list', [SubservicesController::class, 'list'])->name('list');
+    Route::get('/add', [SubservicesController::class, 'add'])->name('add');
+    Route::get('/edit/{id}', [SubservicesController::class, 'edit'])->name('edit');
+    Route::post('/store', [SubservicesController::class, 'store'])->name('store');
+    Route::post('/update/{id}', [SubservicesController::class, 'update'])->name('update');
+    Route::get('/delete/{id}', [SubservicesController::class, 'delete'])->name('delete');
 });
